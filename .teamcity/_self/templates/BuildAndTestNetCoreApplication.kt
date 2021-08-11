@@ -17,7 +17,7 @@ object BuildAndTestNetCoreApplication : Template({
     }
 
     vcs {
-        root(DslContext.AnalyticsMiddleTier)
+        root(DslContext.settingsRoot)
     }
 
     steps {
@@ -49,7 +49,7 @@ object BuildAndTestNetCoreApplication : Template({
     features {
         commitStatusPublisher {
             id = "BUILD_EXT_4"
-            vcsRootExtId = "${AnalyticsMiddleTier.id}"
+            vcsRootExtId = "${DslContext.settingsRoot.id}"
             publisher = github {
                 githubUrl = "https://api.github.com"
                 authType = personalToken {
